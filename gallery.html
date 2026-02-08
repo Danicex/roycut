@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gallery | RoyCut</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .animate-fade-in {
+        animation: fadeIn 0.6s ease-out forwards;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+    </style>
+  </head>
+
+  <body class="bg-white">
+    <main class="min-h-screen">
+
+      <!-- Header -->
+      <div class="bg-gray-900 text-white py-16 px-6">
+        <div class="max-w-6xl mx-auto">
+          <h1 class="text-5xl font-bold mb-4">Our Gallery</h1>
+          <p class="text-xl text-gray-300">
+            Showcase of premium haircuts and styling from RoyCut
+          </p>
+        </div>
+      </div>
+
+      <!-- Gallery Grid -->
+      <section class="max-w-6xl mx-auto py-16 px-6">
+        <div
+          id="gallery"
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-max opacity-0 transition-opacity duration-1000"
+        >
+          <!-- Card 1 -->
+          <div class="gallery-item group relative overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-105">
+            <div class="relative w-full aspect-square">
+              <img
+                src="/gallery-1.jpg"
+                alt="Professional fade haircut"
+                class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+            </div>
+            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300 flex items-end p-4">
+              <p class="text-white font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                Professional fade haircut
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="gallery-item group relative overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-105">
+            <div class="relative w-full aspect-square">
+              <img
+                src="/gallery-2.jpg"
+                alt="Stylish fade with design"
+                class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+            </div>
+            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300 flex items-end p-4">
+              <p class="text-white font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                Stylish fade with design
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="gallery-item group relative overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-105">
+            <div class="relative w-full aspect-square">
+              <img
+                src="/gallery-3.jpg"
+                alt="Classic barbershop cut"
+                class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+            </div>
+            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300 flex items-end p-4">
+              <p class="text-white font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                Classic barbershop cut
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="gallery-item group relative overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-105">
+            <div class="relative w-full aspect-square">
+              <img
+                src="/gallery-4.jpg"
+                alt="Premium haircut with precision"
+                class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+            </div>
+            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300 flex items-end p-4">
+              <p class="text-white font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                Premium haircut with precision
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 5 -->
+          <div class="gallery-item group relative overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-105">
+            <div class="relative w-full aspect-square">
+              <img
+                src="/gallery-5.jpg"
+                alt="Trendy barber design"
+                class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+            </div>
+            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300 flex items-end p-4">
+              <p class="text-white font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                Trendy barber design
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 6 -->
+          <div class="gallery-item group relative overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-105">
+            <div class="relative w-full aspect-square">
+              <img
+                src="/gallery-6.jpg"
+                alt="Elite barber work"
+                class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+            </div>
+            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300 flex items-end p-4">
+              <p class="text-white font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                Elite barber work
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Fade-in Script -->
+    <script>
+      window.addEventListener("DOMContentLoaded", () => {
+        const gallery = document.getElementById("gallery");
+        const items = document.querySelectorAll(".gallery-item");
+
+        gallery.classList.remove("opacity-0");
+        gallery.classList.add("opacity-100");
+
+        items.forEach((item, index) => {
+          item.style.opacity = "0";
+          item.style.animationDelay = `${index * 100}ms`;
+          item.classList.add("animate-fade-in");
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact | RoyCut</title>
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+
+  <body class="bg-white">
+    <main class="min-h-screen">
+
+      <!-- Hero Section -->
+      <section class="relative h-96 w-full overflow-hidden">
+        <img
+          src="/contact-hero.jpg"
+          alt="RoyCut barber service"
+          class="absolute inset-0 w-full h-full object-cover"
+        />
+        <div class="absolute inset-0 bg-black/40"></div>
+        <div class="absolute inset-0 flex items-center justify-center">
+          <div class="text-center text-white">
+            <h1 class="text-5xl font-bold mb-4">Get In Touch</h1>
+            <p class="text-xl">We’d love to hear from you</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Content -->
+      <section class="max-w-4xl mx-auto py-16 px-6">
+        <div class="grid md:grid-cols-2 gap-12">
+
+          <!-- Left Column -->
+          <div>
+            <h2 class="text-3xl font-bold mb-8 text-gray-900">
+              Contact Information
+            </h2>
+
+            <!-- Email -->
+            <div class="mb-10">
+              <h3 class="text-xl font-semibold mb-4 flex items-center gap-2">
+                <!-- Mail Icon -->
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
+                  viewBox="0 0 24 24">
+                  <path d="M4 4h16v16H4z" stroke="none"/>
+                  <path d="M4 4l8 8 8-8" />
+                </svg>
+                Email
+              </h3>
+
+              <p class="text-gray-700 mb-3">
+                Send us a message directly:
+              </p>
+
+              <button
+                onclick="window.location.href='mailto:hello@roycut.com'"
+                class="bg-gray-900 hover:bg-gray-800 text-white px-6 py-3 rounded-md flex items-center gap-2 transition"
+              >
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2"
+                  viewBox="0 0 24 24">
+                  <path d="M4 4h16v16H4z" stroke="none"/>
+                  <path d="M4 4l8 8 8-8" />
+                </svg>
+                hello@roycut.com
+              </button>
+            </div>
+
+            <!-- Response Time -->
+            <div class="p-4 bg-blue-50 rounded-lg border border-blue-200 mb-10">
+              <p class="text-sm text-gray-700">
+                <strong>Response Time:</strong> We typically respond within 2 hours during business hours.
+              </p>
+            </div>
+
+            <!-- Business Hours -->
+            <div>
+              <h3 class="text-lg font-semibold mb-4">Business Hours</h3>
+              <div class="space-y-2 text-gray-700">
+                <p><strong>Monday – Friday:</strong> 8:00 AM – 7:00 PM</p>
+                <p><strong>Saturday:</strong> 9:00 AM – 8:00 PM</p>
+                <p><strong>Sunday:</strong> 11:00 AM – 6:00 PM</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column -->
+          <div>
+            <h2 class="text-3xl font-bold mb-8 text-gray-900">
+              Follow Us
+            </h2>
+
+            <p class="text-gray-700 text-lg mb-6">
+              Connect with us for updates, style inspiration, and special offers.
+            </p>
+
+            <div class="space-y-4">
+
+              <!-- Instagram -->
+              <a
+                href="https://instagram.com/roycut"
+                target="_blank"
+                class="flex items-center gap-4 p-4 rounded-lg border hover:bg-gray-50 transition"
+              >
+                <span class="text-pink-600 font-bold">IG</span>
+                <div>
+                  <p class="font-semibold">Instagram</p>
+                  <p class="text-sm text-gray-600">@roycut</p>
+                </div>
+                <span class="ml-auto text-gray-400">→</span>
+              </a>
+
+              <!-- Facebook -->
+              <a
+                href="https://facebook.com/roycut"
+                target="_blank"
+                class="flex items-center gap-4 p-4 rounded-lg border hover:bg-gray-50 transition"
+              >
+                <span class="text-blue-600 font-bold">FB</span>
+                <div>
+                  <p class="font-semibold">Facebook</p>
+                  <p class="text-sm text-gray-600">@roycut</p>
+                </div>
+                <span class="ml-auto text-gray-400">→</span>
+              </a>
+
+              <!-- TikTok -->
+              <a
+                href="https://tiktok.com/@roycut"
+                target="_blank"
+                class="flex items-center gap-4 p-4 rounded-lg border hover:bg-gray-50 transition"
+              >
+                <span class="text-black font-bold">TT</span>
+                <div>
+                  <p class="font-semibold">TikTok</p>
+                  <p class="text-sm text-gray-600">@roycut</p>
+                </div>
+                <span class="ml-auto text-gray-400">→</span>
+              </a>
+            </div>
+
+            <!-- WhatsApp CTA -->
+            <div class="mt-10 p-6 bg-gray-900 text-white rounded-lg">
+              <h3 class="font-bold mb-2">Prefer to book directly?</h3>
+              <p class="text-sm text-gray-300 mb-4">
+                Send us a WhatsApp message to book instantly.
+              </p>
+              <a
+                href="https://wa.me/2349123456789"
+                target="_blank"
+                class="block text-center bg-white text-gray-900 py-3 rounded-md hover:bg-gray-100 transition"
+              >
+                Chat on WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
