@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gallery | RoyCut</title>
-
+    <link rel="icon" type="image/x-icon" href="./assets/roycutlogo.png">
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
 
@@ -24,6 +24,72 @@
         animation: fadeIn 0.6s ease-out forwards;
       }
 
+      /* Pinterest Masonry Grid */
+      .masonry-grid {
+        columns: 4;
+        column-gap: 1.5rem;
+      }
+
+      .masonry-item {
+        break-inside: avoid;
+        margin-bottom: 1.5rem;
+        position: relative;
+      }
+
+      .masonry-item img {
+        width: 100%;
+        height: auto;
+        border-radius: 0.75rem;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        display: block;
+      }
+
+      .masonry-item img:hover {
+        transform: scale(1.02);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      }
+
+      /* Hover overlay */
+      .image-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 50%);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        border-radius: 0.75rem;
+        display: flex;
+        align-items: flex-end;
+        padding: 1rem;
+        color: white;
+        pointer-events: none;
+      }
+
+      .masonry-item:hover .image-overlay {
+        opacity: 1;
+      }
+
+      /* Responsive columns */
+      @media (max-width: 1200px) {
+        .masonry-grid {
+          columns: 3;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .masonry-grid {
+          columns: 2;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .masonry-grid {
+          columns: 1;
+        }
+      }
+
       @media (prefers-reduced-motion: reduce) {
         * {
           animation-duration: 0.01ms !important;
@@ -31,12 +97,24 @@
           transition-duration: 0.01ms !important;
         }
       }
+
+      /* Grid fallback for older browsers */
+      @supports not (columns: 4) {
+        .masonry-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+          gap: 1.5rem;
+        }
+        
+        .masonry-item {
+          margin-bottom: 0;
+        }
+      }
     </style>
   </head>
 
   <body class="bg-white">
     <main class="min-h-screen">
-
       <!-- Header -->
       <div class="bg-gray-900 text-white py-16 px-6">
         <div class="max-w-6xl mx-auto">
@@ -49,123 +127,140 @@
 
       <!-- Gallery Grid -->
       <section class="max-w-6xl mx-auto py-16 px-6">
-        <div
-          id="gallery"
-          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-max opacity-0 transition-opacity duration-1000"
-        >
-          <!-- Card 1 -->
-          <div class="gallery-item group relative overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-105">
-            <div class="relative w-full aspect-square">
-              <img
-                src="/gallery-1.jpg"
-                alt="Professional fade haircut"
-                class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-              />
-            </div>
-            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300 flex items-end p-4">
-              <p class="text-white font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                Professional fade haircut
-              </p>
-            </div>
-          </div>
-
-          <!-- Card 2 -->
-          <div class="gallery-item group relative overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-105">
-            <div class="relative w-full aspect-square">
-              <img
-                src="/gallery-2.jpg"
-                alt="Stylish fade with design"
-                class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-              />
-            </div>
-            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300 flex items-end p-4">
-              <p class="text-white font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                Stylish fade with design
-              </p>
-            </div>
-          </div>
-
-          <!-- Card 3 -->
-          <div class="gallery-item group relative overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-105">
-            <div class="relative w-full aspect-square">
-              <img
-                src="/gallery-3.jpg"
-                alt="Classic barbershop cut"
-                class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-              />
-            </div>
-            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300 flex items-end p-4">
-              <p class="text-white font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                Classic barbershop cut
-              </p>
-            </div>
-          </div>
-
-          <!-- Card 4 -->
-          <div class="gallery-item group relative overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-105">
-            <div class="relative w-full aspect-square">
-              <img
-                src="/gallery-4.jpg"
-                alt="Premium haircut with precision"
-                class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-              />
-            </div>
-            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300 flex items-end p-4">
-              <p class="text-white font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                Premium haircut with precision
-              </p>
-            </div>
-          </div>
-
-          <!-- Card 5 -->
-          <div class="gallery-item group relative overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-105">
-            <div class="relative w-full aspect-square">
-              <img
-                src="/gallery-5.jpg"
-                alt="Trendy barber design"
-                class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-              />
-            </div>
-            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300 flex items-end p-4">
-              <p class="text-white font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                Trendy barber design
-              </p>
-            </div>
-          </div>
-
-          <!-- Card 6 -->
-          <div class="gallery-item group relative overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-105">
-            <div class="relative w-full aspect-square">
-              <img
-                src="/gallery-6.jpg"
-                alt="Elite barber work"
-                class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-              />
-            </div>
-            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300 flex items-end p-4">
-              <p class="text-white font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                Elite barber work
-              </p>
-            </div>
-          </div>
+        <div id="gallery" class="masonry-grid opacity-0 transition-opacity duration-500">
+          <!-- Gallery items will be dynamically inserted here -->
+        </div>
+        
+        <!-- Loading indicator -->
+        <div id="loading" class="text-center py-12">
+          <div class="inline-block animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-gray-900 mb-4"></div>
+          <p class="text-gray-600 text-lg">Loading gallery images...</p>
+        </div>
+        
+        <!-- Error message -->
+        <div id="error-message" class="hidden text-center py-12">
+          <svg class="w-16 h-16 mx-auto text-gray-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+          <h3 class="text-xl font-semibold text-gray-700 mb-2">Unable to load gallery</h3>
+          <p class="text-gray-500">Please check your image files and try again</p>
         </div>
       </section>
     </main>
 
-    <!-- Fade-in Script -->
     <script>
-      window.addEventListener("DOMContentLoaded", () => {
+      // Your image array
+      const gallery_images = [
+        './assets/gallery/image1.jpg',
+        './assets/gallery/image2.jpg',
+        './assets/gallery/image3.jpg',
+        './assets/gallery/image4.jpg',
+        './assets/gallery/image5.jpeg',
+        './assets/gallery/image6.jpeg',
+        './assets/gallery/image7.jpeg',
+        './assets/gallery/image8.jpeg',
+        './assets/gallery/image9.jpeg',
+        './assets/gallery/image10.jpeg',
+      ];
+      
+      // Function to get image number from filename
+      function getImageNumber(filename) {
+        const match = filename.match(/image(\d+)\./);
+        return match ? match[1] : '';
+      }
+      
+      // Function to create gallery items
+      function createGalleryItems() {
         const gallery = document.getElementById("gallery");
-        const items = document.querySelectorAll(".gallery-item");
-
-        gallery.classList.remove("opacity-0");
-        gallery.classList.add("opacity-100");
-
-        items.forEach((item, index) => {
+        const loading = document.getElementById("loading");
+        const errorMessage = document.getElementById("error-message");
+        
+        // Clear gallery
+        gallery.innerHTML = '';
+        
+        // Check if we have images
+        if (!gallery_images || gallery_images.length === 0) {
+          loading.classList.add('hidden');
+          errorMessage.classList.remove('hidden');
+          return;
+        }
+        
+        // Create gallery items
+        gallery_images.forEach((imageSrc, index) => {
+          const imageNumber = getImageNumber(imageSrc);
+          const item = document.createElement('div');
+          item.className = 'masonry-item gallery-item';
           item.style.opacity = "0";
           item.style.animationDelay = `${index * 100}ms`;
-          item.classList.add("animate-fade-in");
+          
+          item.innerHTML = `
+            <div class="relative">
+              <img 
+                src="${imageSrc}" 
+                alt="RoyCut Hair Style ${imageNumber ? `#${imageNumber}` : index + 1}" 
+                loading="lazy"
+                onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjQwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjdmN2Y3Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCxzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmaWxsPSIjNjY2IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkeT0iLjNlbSI+Um95Q3V0IEdhbGxlcnkgSW1hZ2U8L3RleHQ+PHRleHQgeD0iNTAlIiB5PSI1NSUiIGZvbnQtZmFtaWx5PSJBcmlhbCxzYW5zLXNlcmlmIiBmb250LXNpemU9IjEyIiBmaWxsPSIjODg4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkeT0iMWVtIj5QcmVtaXVtIEhhaXJjdXQ8L3RleHQ+PC9zdmc+';"
+              >
+              <div class="image-overlay">
+                <div>
+                  <p class="font-medium text-lg">Premium Haircut</p>
+                  <p class="text-sm text-gray-200">Style ${imageNumber ? `#${imageNumber}` : index + 1}</p>
+                </div>
+              </div>
+            </div>
+          `;
+          
+          gallery.appendChild(item);
         });
+        
+        // Hide loading indicator
+        loading.classList.add('hidden');
+        
+        // Show gallery with fade animation
+        setTimeout(() => {
+          gallery.classList.remove("opacity-0");
+          gallery.classList.add("opacity-100");
+          
+          // Animate each item
+          const items = document.querySelectorAll(".gallery-item");
+          items.forEach((item) => {
+            item.classList.add("animate-fade-in");
+          });
+          
+          // Set opacity to 1 after animation
+          setTimeout(() => {
+            items.forEach((item) => {
+              item.style.opacity = "1";
+            });
+          }, 600);
+        }, 300);
+      }
+      
+      // Load gallery when DOM is ready
+      window.addEventListener("DOMContentLoaded", () => {
+        createGalleryItems();
+        
+        // Preload images for better user experience
+        gallery_images.forEach(src => {
+          const img = new Image();
+          img.src = src;
+        });
+      });
+      
+      // Handle window resize for better masonry layout
+      let resizeTimer;
+      window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+          // Recalculate masonry layout on resize
+          const gallery = document.getElementById("gallery");
+          if (gallery) {
+            // Force reflow for masonry columns
+            gallery.style.display = 'none';
+            gallery.offsetHeight; // Trigger reflow
+            gallery.style.display = 'block';
+          }
+        }, 250);
       });
     </script>
   </body>
